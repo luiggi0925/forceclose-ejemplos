@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pe.edu.ltmj.repositorio.mapper.EncuestaMapper">
+
+    <resultMap id="encuestaMap" type="Encuesta">
+        <id property="id" column="encuesta_id" />
+        <result property="titulo" column="titulo"/>
+        <collection property="preguntas" ofType="Pregunta">
+            <id property="id" column="pregunta_id" />
+            <result property="texto" column="texto"/>
+        </collection>
+    </resultMap>
+
+    <select id="obtenerEncuestaPorId" resultMap="encuestaMap">
+        select e.id AS 'encuesta_id', e.titulo,
+               p.id AS 'pregunta_id', p.texto
+        from encuesta e
+             inner join pregunta p on p.encuesta_id = e.id
+        where e.id = #{id}
+    </select>
+
+    <insert id="registrarEncuesta" parameterType="Encuesta" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO encuesta(titulo) VALUES (#{titulo})
+    </insert>
+</mapper>
