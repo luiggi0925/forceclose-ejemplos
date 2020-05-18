@@ -1,15 +1,9 @@
 package pe.edu.ltmj.servicio;
 
-import org.hamcrest.Matcher;
-import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import pe.edu.ltmj.controlador.dto.NuevaEncuestaDto;
 import pe.edu.ltmj.entidad.Encuesta;
 import pe.edu.ltmj.entidad.Pregunta;
@@ -17,12 +11,11 @@ import pe.edu.ltmj.excepcion.NotFoundException;
 import pe.edu.ltmj.repositorio.EncuestaRepositorio;
 import pe.edu.ltmj.repositorio.PreguntaRepositorio;
 
-import java.util.Arrays;
-
+import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.contains;
-import static org.mockito.ArgumentMatchers.contains;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.*;
 
 public class EncuestaServicioImplTest {
@@ -41,7 +34,7 @@ public class EncuestaServicioImplTest {
     @Test
     public void obtenerPorIdTest() {
         Encuesta encuesta = new Encuesta(1L, "satisfacción de cliente",
-                Arrays.asList(new Pregunta(1L, "pregunta 1", 1L)));
+                asList(new Pregunta(1L, "pregunta 1", 1L)));
         doReturn(encuesta).when(encuestaRepositorio).obtenerPorId(1L);
 
         Encuesta obtenido = encuestaServicio.obtenerPorId(1L);
@@ -76,7 +69,7 @@ public class EncuestaServicioImplTest {
 
         NuevaEncuestaDto nuevaEncuestaDto = new NuevaEncuestaDto();
         nuevaEncuestaDto.setTitulo("hola mundo");
-        nuevaEncuestaDto.setPreguntas(Arrays.asList("p1", "p2"));
+        nuevaEncuestaDto.setPreguntas(asList("p1", "p2"));
 
         Encuesta encuesta = encuestaServicio.crearEncuesta(nuevaEncuestaDto);
         assertThat(encuesta.getId(), equalTo(id));

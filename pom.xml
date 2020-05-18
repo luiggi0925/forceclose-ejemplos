@@ -132,6 +132,37 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.5</version>
+                <configuration>
+                    <excludes>
+                        <exclude>pe/edu/ltmj/*</exclude>
+                        <exclude>pe/edu/ltmj/configuracion/*</exclude>
+                        <exclude>pe/edu/ltmj/entidad/*</exclude>
+                        <exclude>pe/edu/ltmj/controlador/*</exclude>
+                        <exclude>pe/edu/ltmj/controlador/dto/*</exclude>
+                        <exclude>pe/edu/ltmj/excepcion/*</exclude>
+                        <exclude>pe/edu/ltmj/repositorio/mapper/*</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- attached to Maven test phase -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

@@ -1,7 +1,5 @@
 package pe.edu.ltmj.controlador.dto;
 
-import pe.edu.ltmj.entidad.Pregunta;
-
 import java.util.List;
 
 public class EncuestaDto {

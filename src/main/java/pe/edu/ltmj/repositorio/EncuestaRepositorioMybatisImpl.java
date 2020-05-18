@@ -5,10 +5,6 @@ import org.springframework.stereotype.Repository;
 import pe.edu.ltmj.entidad.Encuesta;
 import pe.edu.ltmj.repositorio.mapper.EncuestaMapper;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
-
 @Repository
 @Primary
 public class EncuestaRepositorioMybatisImpl implements EncuestaRepositorio {

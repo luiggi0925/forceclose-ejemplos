@@ -2,5 +2,14 @@ version: "3.7"
 services:
   webapp:
     build: .
+    networks:
+      - forcecloseNetwork
     ports:
     - 8080:8080
+    - 8001:8001
+    environment:
+      JPDA_ADDRESS: 8001
+      JPDA_TRANSPORT: dt_socket
+networks:
+  forcecloseNetwork:
+    name: forcecloseNetwork

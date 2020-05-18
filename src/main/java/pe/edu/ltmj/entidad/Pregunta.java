@@ -1,7 +1,5 @@
 package pe.edu.ltmj.entidad;
 
-import java.util.List;
-
 public class Pregunta {
     private Long id;
     private String texto;

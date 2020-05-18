@@ -3,7 +3,6 @@ package pe.edu.ltmj;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import pe.edu.ltmj.Aplicacion;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

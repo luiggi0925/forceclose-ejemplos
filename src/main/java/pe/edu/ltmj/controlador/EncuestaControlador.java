@@ -7,8 +7,6 @@ import pe.edu.ltmj.controlador.dto.RestResponse;
 import pe.edu.ltmj.entidad.Encuesta;
 import pe.edu.ltmj.servicio.EncuestaServicio;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "/encuestas", consumes = MediaType.APPLICATION_JSON_VALUE)
 public class EncuestaControlador {

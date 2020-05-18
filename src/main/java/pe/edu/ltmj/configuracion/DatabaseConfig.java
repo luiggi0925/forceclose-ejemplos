@@ -13,7 +13,7 @@ public class DatabaseConfig {
     public DataSource dataSource() {
         HikariConfig config = new HikariConfig();
         config.setAutoCommit(false);
-        config.setJdbcUrl("jdbc:sqlserver://localhost:1433;databaseName=encuestas;");
+        config.setJdbcUrl("jdbc:sqlserver://sqlserver-local:1433;databaseName=encuestas;");
         config.setUsername("sa");
         config.setPassword("password$123");
         config.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDataSource");
