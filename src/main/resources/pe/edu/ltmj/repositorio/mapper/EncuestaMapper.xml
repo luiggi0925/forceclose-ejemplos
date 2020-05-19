@@ -28,7 +28,7 @@
         INSERT INTO encuesta(titulo) VALUES (#{titulo})
     </insert>
     
-    <insert id="deshabilitarEncuesta" 
+    <select id="deshabilitarEncuesta" 
             parameterType="Encuesta"
             resultMap="encuestaMap">
         UPDATE encuesta
@@ -37,5 +37,5 @@
         
         SELECT * FROM dbo.encuesta
         WHERE encuesta.id = #{id}
-    </insert>
+    </select>
 </mapper>
