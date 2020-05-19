@@ -6,4 +6,5 @@ public interface EncuestaMapper {
 
     Encuesta obtenerEncuestaPorId(Long id);
     void registrarEncuesta(Encuesta encuesta);
+    Encuesta deshabilitarEncuesta(Encuesta nuevaEncuesta);
 }
