@@ -28,7 +28,8 @@ public class EncuestaRepositorioMybatisImpl implements EncuestaRepositorio {
 
     @Override
     public Encuesta deshabilitarEncuesta(Long id) {
-        //encuestaMapper.deshabilitarEncuesta(id);
-        return null;
+        Encuesta nuevaEncuesta = new Encuesta();
+        nuevaEncuesta.setId(id);
+        return encuestaMapper.deshabilitarEncuesta(nuevaEncuesta);
     }
 }

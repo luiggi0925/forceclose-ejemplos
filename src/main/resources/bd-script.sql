@@ -14,3 +14,6 @@ CREATE TABLE dbo.pregunta (
 	FOREIGN KEY (encuesta_id) REFERENCES dbo.encuesta(id)
 )
 GO
+
+ALTER TABLE dbo.encuesta ADD enable int
+GO
