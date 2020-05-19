@@ -12,6 +12,8 @@
             <result property="texto" column="texto"/>
         </collection>
     </resultMap>
+    
+    
 
     <select id="obtenerEncuestaPorId" resultMap="encuestaMap">
         select e.id AS 'encuesta_id', e.titulo,
@@ -19,9 +21,21 @@
         from encuesta e
              inner join pregunta p on p.encuesta_id = e.id
         where e.id = #{id}
+        AND e.enable = 1
     </select>
 
     <insert id="registrarEncuesta" parameterType="Encuesta" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO encuesta(titulo) VALUES (#{titulo})
+    </insert>
+    
+    <insert id="deshabilitarEncuesta" 
+            parameterType="Encuesta"
+            resultMap="encuestaMap">
+        UPDATE encuesta
+        SET enable = 0
+        WHERE id = #{id}
+        
+        SELECT * FROM dbo.encuesta
+        WHERE encuesta.id = #{id}
     </insert>
 </mapper>

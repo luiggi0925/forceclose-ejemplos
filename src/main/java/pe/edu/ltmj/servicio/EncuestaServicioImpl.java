@@ -53,4 +53,19 @@ public class EncuestaServicioImpl implements EncuestaServicio {
         });
         return encuesta;
     }
+
+    @Override
+    public Encuesta deshabilitarEncuesta(Long id) {
+
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id no puede ser negativo o cero");
+        }
+
+        Encuesta encuesta = encuestaRepositorio.obtenerPorId(id);
+        if (encuesta == null) {
+            throw new NotFoundException("No existe encuesta con id " + id, 404);
+        }
+
+        return encuestaRepositorio.deshabilitarEncuesta(id);
+    }
 }
