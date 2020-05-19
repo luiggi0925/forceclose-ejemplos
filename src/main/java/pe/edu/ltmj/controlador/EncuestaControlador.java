@@ -26,4 +26,10 @@ public class EncuestaControlador {
     public RestResponse<Encuesta> crearEncuesta(@RequestBody NuevaEncuestaDto nuevaEncuesta) {
         return new RestResponse<>(encuestaServicio.crearEncuesta(nuevaEncuesta), "OK");
     }
+    
+    @DeleteMapping("/deshabilitar/{id}")
+    public RestResponse<Encuesta> deshabilitarEncuesta(@PathVariable("id") Long id) {
+    	Encuesta encuestaTemp = this.encuestaServicio.deshabilitarEncuesta(id);
+    	return new RestResponse<>(encuestaTemp, "OK");	
+    }
 }
