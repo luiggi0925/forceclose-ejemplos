@@ -30,4 +30,9 @@ public class EncuestaRepositorioMemoriaImpl implements EncuestaRepositorio {
         mapa.put(id, nuevaEncuesta);
         return nuevaEncuesta;
     }
+
+    @Override
+    public Encuesta deshabilitarEncuesta(Long id) {
+        return null;
+    }
 }

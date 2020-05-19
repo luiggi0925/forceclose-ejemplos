@@ -6,14 +6,17 @@ public class Encuesta {
     private Long id;
     private String titulo;
     private List<Pregunta> preguntas;
+    private Integer habilitado;
 
     public Encuesta() {
+        this.habilitado = 0;
     }
 
     public Encuesta(Long id, String titulo, List<Pregunta> preguntas) {
         this.id = id;
         this.titulo = titulo;
         this.preguntas = preguntas;
+        this.habilitado = 0;
     }
 
     public Long getId() {
@@ -38,5 +41,13 @@ public class Encuesta {
 
     public void setPreguntas(List<Pregunta> preguntas) {
         this.preguntas = preguntas;
+    }
+
+    public Integer getHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(Integer habilitado) {
+        this.habilitado = habilitado;
     }
 }

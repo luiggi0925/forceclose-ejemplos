@@ -7,4 +7,5 @@ public interface EncuestaServicio {
 
     Encuesta obtenerPorId(Long id);
     Encuesta crearEncuesta(NuevaEncuestaDto nuevaEncuestaDto);
+    Encuesta deshabilitarEncuesta(Long id);
 }
